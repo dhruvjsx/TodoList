@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+.app-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: #333333;
+}
+.input-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.input-container button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.input-container button:hover {
+  background-color: #45a049;
+}
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+.todo-item {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  /* border: 1px solid #ddd; */
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+.todo-item.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+.todo-item:hover .nested-button {
+  display: inline-block;
+}
+.actions button {
+  margin-left: 5px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.actions button:hover {
+  opacity: 0.8;
+}
+.nested-button {
+  background-color: #6C757D;
+  display: none;
+}
+.clear-btn {
+  background-color: #FF0000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+.clear-btn:hover {
+  opacity: 0.9;
+}
+.wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+
+.toggle-btn {
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+  display: none;
+}
+
+.task-text {
+  flex-grow: 1;
+}
+
+.nested-task {
+  margin-left: 20px;
+  border-left: 2px solid #ddd;
+  padding-left: 10px;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.nested-button {
+  background-color: #6C757D;
+  border: none;
+  color: white;
+
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.heading{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4px;
+  box-sizing: border-box;
+}
