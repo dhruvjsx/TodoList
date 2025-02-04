@@ -3,6 +3,30 @@ let addTaskBtn = document.getElementById('add-task-btn');
 let todoList = document.getElementById('todo-list');
 let clearAllBtn = document.getElementById('clear-all-btn');
 
+function handleAddTask (){
+  let task = taskInput.value.trim();
+  if (task) {
+      let todoItem = createTodoElement(task);
+      todoList.appendChild(todoItem);
+      taskInput.value = '';
+  }
+}
+function handleClearAll (){
+  todoList.innerHTML = '';
+}
+function addNestedTask(li){
+  
+    let children = li.querySelectorAll('.nested-task');
+    children.forEach(child => {
+        child.classList.toggle('hidden');
+    });
+    toggleBtn.textContent = toggleBtn.textContent === '▶' ? '▼' : '▶';
+
+}
+
+function handleDelete(li) {
+  li.remove();
+}
 function createTodoElement(task, level = 0) {
     let li = document.createElement('li');
     li.className = 'todo-item';
@@ -15,13 +39,7 @@ function createTodoElement(task, level = 0) {
     let toggleBtn = document.createElement('span');
     toggleBtn.className = 'toggle-btn';
     toggleBtn.textContent = '▼';
-    toggleBtn.addEventListener('click', () => {
-        let children = li.querySelectorAll('.nested-task');
-        children.forEach(child => {
-            child.classList.toggle('hidden');
-        });
-        toggleBtn.textContent = toggleBtn.textContent === '▶' ? '▼' : '▶';
-    });
+    toggleBtn.addEventListener('click',addNestedTask.bind(null, li) );
     let span = document.createElement('span');
     span.textContent = task;
     span.contentEditable = true;
@@ -40,9 +58,7 @@ function createTodoElement(task, level = 0) {
 
     let deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
-    deleteBtn.addEventListener('click', () => {
-        li.remove();
-    });
+    deleteBtn.addEventListener('click', handleDelete.bind(null,li));
 
     let nestedBtn = document.createElement('button');
     nestedBtn.textContent = '+';
@@ -78,23 +94,14 @@ function createTodoElement(task, level = 0) {
     actions.appendChild(deleteBtn);
     actions.appendChild(nestedBtn);
     
-    heading.appendChild(toggleBtn);
     wrapper.appendChild(span);
     wrapper.appendChild(actions);
+    heading.appendChild(toggleBtn);
     heading.appendChild(wrapper)
     li.appendChild(heading)
     return li;
 }
 
-addTaskBtn.addEventListener('click', () => {
-    let task = taskInput.value.trim();
-    if (task) {
-        let todoItem = createTodoElement(task);
-        todoList.appendChild(todoItem);
-        taskInput.value = '';
-    }
-});
+addTaskBtn.addEventListener('click', handleAddTask );
 
-clearAllBtn.addEventListener('click', () => {
-    todoList.innerHTML = '';
-});
+clearAllBtn.addEventListener('click', handleClearAll);
