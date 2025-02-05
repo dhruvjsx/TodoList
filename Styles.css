@@ -76,6 +76,11 @@ h1 {
 .todo-item:hover .nested-button {
   display: inline-block;
 }
+.actions{
+  display: flex;
+  align-items: center;
+  gap:4px
+}
 .actions button {
   margin-left: 5px;
   border: none;
