@@ -90,12 +90,12 @@ function createTodoElement(task, level = 0) {
         }
     });
 
-    actions.appendChild(completeBtn);
     actions.appendChild(deleteBtn);
+    actions.appendChild(completeBtn);
     actions.appendChild(nestedBtn);
     
-    wrapper.appendChild(span);
     wrapper.appendChild(actions);
+    wrapper.appendChild(span);
     heading.appendChild(toggleBtn);
     heading.appendChild(wrapper)
     li.appendChild(heading)
